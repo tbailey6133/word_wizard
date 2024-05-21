@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles.css') }}"
+    />
+    <title>Word Counter</title>
+  </head>
+  <body>
+    {% include 'header.html' %}
+    <div class="wordcounter_container" id="wordcounter_container">
+      <div class="wordcounter" id="wordcounter">
+        <label style="display: block; padding-bottom: 1rem; color: white"
+          ><input type="hidden" />Word Counter:</label
+        >
+        <form action="/wordcounter" method="POST" id="wordcounter_form">
+          <textarea
+            class="wordcounter_textarea"
+            id="wordcounter_form_textarea"
+            name="wordcounter_form"
+            rows="25"
+            cols="65"
+            style="border-radius: 10px"
+          >
+{% if submitted_value %}{{submitted_value}}{% endif %}</textarea
+          >
+          <input type="submit" value="Get Word Count" />
+        </form>
+        <div style="color: white; padding-top: 1rem">
+          Total Words: {% if total_word_count %} {{total_word_count}} {% endif
+          %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

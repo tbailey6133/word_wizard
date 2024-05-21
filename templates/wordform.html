@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles.css') }}"
+    />
+    <script type="text/javascript" src="/static/helpers.js"></script>
+    <title>SB Form</title>
+  </head>
+  <body>
+    <h3 style="color: white">Word Finder</h3>
+    <label>
+      <form
+        class="word_form"
+        id="word_form"
+        name="word_form"
+        action="/"
+        method="POST"
+      >
+        <div
+          class="hive mx-auto w-\[170px\] p-6"
+          style="aspect-ratio: 0.97"
+          data-hive
+        >
+          {% for i in range(7) %}
+          <span class="hive-cell relative" data-hive>
+            <svg
+              class='{{"hive-cell-center" if i == 0}}'
+              viewBox="0 0 120 103.92304845413263"
+              data-testid="hive-cell-outer"
+              data-hive
+            >
+              <polygon
+                class="cell-fill"
+                id="value-{{i}}"
+                points="0,51.96152422706631 30,0 90,0 120,51.96152422706631 90,103.92304845413263 30,103.92304845413263"
+                stroke="white"
+                stroke-width="7.5"
+                data-testid="cell-fill"
+              ></polygon>
+            </svg>
+            {% if letters %}
+            <input
+              type="text"
+              data-id="{{i}}"
+              name="data-{{i}}"
+              id="{{i}}"
+              maxlength="1"
+              placeholder=" "
+              value="{{letters[i]}}"
+              data-hive
+            />
+            {% else %}
+            <input
+              type="text"
+              data-id="{{i}}"
+              name="data-{{i}}"
+              id="{{i}}"
+              maxlength="1"
+              placeholder=" "
+              value=""
+              data-hive
+            />
+            {% endif %}
+          </span>
+          {% endfor %}
+        </div>
+        <button
+          style="margin-bottom: 20px; margin-left: 20px"
+          onClick="checkValidFormSubmit(event)"
+          type="submit"
+        >
+          Find Words
+        </button>
+        <input
+          type="checkbox"
+          id="show_answers"
+          name="show_answers"
+          value="answers"
+        />Show Answers
+      </form>
+    </label>
+  </body>
+</html>

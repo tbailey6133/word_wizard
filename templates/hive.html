@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+    <title>Hive</title>
+  </head>
+  <body>
+    {% include 'modal.html' %}
+    <div class="sb-controls">
+      <div class="hive-cell">
+        {% include 'wordform.html' %}
+        <br /><br />
+        {% if total_words %}
+        <h2>Total words: {{total_words}}</h2>
+        <h2>Pangrams: {{pangrams|length}}</h2>
+        {% endif %} {% if lengthset %} {% include 'wordgrid.html' %} {% endif %}
+        {% if prefix_counts %} {% include 'wordmatrix.html' %} {% endif %} {% if
+        grouped_buildable_words %} {% if answers %} {% include 'answers.html' %}
+        {% endif %} {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

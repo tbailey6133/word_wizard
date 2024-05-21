@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="/static/helpers.js"></script>
+    <title>Answers</title>
+  </head>
+  <body>
+    <div id="words" class="words">
+      <h2>Words grouped by length:</h2>
+      {% for length, words in grouped_buildable_words.items() %}
+      <div class="word_group">
+        <h3 style="margin-left: 10px">Length {{ length }}:</h3>
+        <ul style="list-style-type: none">
+          {% for word in words %} {% if word.word %}
+          <li id="word-{{ loop.index }}">
+            <button onClick="showModal(this)">
+              <span>{{ word.word }}</span>
+            </button>
+          </li>
+          {% endif %} {% endfor %}
+        </ul>
+      </div>
+      <br />
+      <br />
+      {% endfor %} {% if pangrams %} {% include 'pangrams.html' %} {% endif %}
+    </div>
+  </body>
+</html>

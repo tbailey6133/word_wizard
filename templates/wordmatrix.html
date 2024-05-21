@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Matrix</title>
+  </head>
+  <body>
+    <div id="word_matrix" class="word_matrix">
+      {% for item in prefix_counts %} {% for val in prefix_counts[item] %}
+      <strong>{{val.Prefix}}</strong>
+      X {{val.Count}} {% endfor %}
+      <br />
+      {% endfor %}
+    </div>
+  </body>
+</html>
