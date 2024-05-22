@@ -8,8 +8,20 @@ When answers are rendered and a word is clicked, definitions are retrieved via t
 
 There's a word counter available at the /wordcounter endpoint, too.
 
-To start the app, enter the following command in a terminal:
+To install requirements:
 
 ```
-flask --app wordwizard run
+pip install -r requirements.txt
+```
+
+To start the app:
+
+```
+flask run
+```
+
+Or
+
+```
+./run
 ```
