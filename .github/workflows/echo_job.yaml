@@ -1,0 +1,14 @@
+name: Echo Status Check
+
+on:
+  pull_request:
+    branches: [ main, master ] # Adjust to your protected branch
+
+jobs:
+  echo_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run Echo Command
+        run: echo "Basic status check ran successfully!"
