@@ -8,7 +8,7 @@ When answers are rendered and a word is clicked, definitions are retrieved via t
 
 There's a word counter available at the /wordcounter endpoint, too.
 
-To install requirements:
+To install requirements:    
    
 ```
 pip install -r requirements.txt
