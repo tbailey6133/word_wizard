@@ -12,3 +12,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Run Echo Command
         run: echo "Basic status check ran successfully!"
+      - name: Run Makefile Hello
+        run: make hello
