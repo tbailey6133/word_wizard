@@ -1,6 +1,8 @@
 name: Echo Status Check
 
 on:
+  push:
+    branches: [ main, master ] # or remove 'branches' to run on all branches
   pull_request:
     branches: [ main, master ] # Adjust to your protected branch
 
